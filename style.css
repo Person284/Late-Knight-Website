@@ -1,8 +1,9 @@
 :root{
-    background-color: gray;
+    background-color: rgb(190, 195, 199);
     font-family: sans-serif;
     --lk-gray: rgb(190, 195, 199);
     --plu-gold: rgb(253, 205, 5);
+    --lk-text-color: rgb(236, 240, 241);
 }
 
 div.header{
@@ -15,25 +16,29 @@ div.header{
     display: flex;
     background-color: black;
     justify-content: space-between;
+    color: var(--lk-text-color);
 }
 
 div.background{
-    opacity: 50%;
-    position: fixed;
-    z-index: -1;
-    display: flex;
-    left: 0px;
+    position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
+    opacity: 50%;
     background-color: black;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    display: flex;
+    display: flex;
     justify-content: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .background img{
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    bottom: -25px;
+    right: -15px;
 }
 
 div[id="util"]{
