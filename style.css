@@ -1,0 +1,24 @@
+div.top{
+    display: flex;
+    flex-grow: 1;
+    background-color: black;
+}
+
+body{
+    background-color: gray;
+}
+
+input[id="search"]{
+    border-radius: 10px;
+}
+
+input[id="search"]:hover{
+    transform: translate(10px);
+}
+
+button[id="about"]{
+    background-color: gray;
+    border-radius: 20px;
+    width: 100px;
+    height: max-content;
+}
