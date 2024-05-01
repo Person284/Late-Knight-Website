@@ -65,6 +65,6 @@ button.headerButtons{
 }
 
 button.headerButtons:hover{
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     color: var(--plu-gold);
 }
