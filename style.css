@@ -101,8 +101,23 @@ footer{
     text-align: center;
     position: absolute;
     display: flex;
-    border: 2px solid red;
-    background-color: white;
+    flex-direction: column;
+    border: 2px groove var(--lk-text-color);
+    background-color: rgb(233, 237, 238);
     height: 100%;
     width: 85%;
+}
+
+.main .paragraphs{
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.main h1{
+   font-family: 'Courier New'; 
+}
+
+.main p{
+   font-family: 'Courier New'; 
 }
