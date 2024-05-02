@@ -83,6 +83,22 @@ footer{
     width: 100%;
     height: var(--footer-size);
     justify-content: center;
+    align-items: flex-start;
+}
+
+.links{
+    position: absolute;
+    left: 0px;
+}
+
+.logo{
+    position: absolute;
+    right:0px
+}
+
+footer img{
+    height: var(--footer-size);
+    width: auto;
 }
 
 #copyright{
@@ -120,4 +136,17 @@ footer{
 
 .main p{
    font-family: 'Courier New'; 
+}
+.searchbar{
+    display: flex;
+    justify-content: center;
+}
+
+input[type="search"]{
+    width: 50%;
+    font-size: 25px;
+}
+
+.searchbar img{
+    height: 25px;
 }
