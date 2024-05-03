@@ -83,6 +83,22 @@ footer{
     width: 100%;
     height: var(--footer-size);
     justify-content: center;
+    align-items: flex-start;
+}
+
+.links{
+    position: absolute;
+    left: 0px;
+}
+
+.logo{
+    position: absolute;
+    right:0px
+}
+
+footer img{
+    height: var(--footer-size);
+    width: auto;
 }
 
 #copyright{
@@ -101,12 +117,36 @@ footer{
     text-align: center;
     position: absolute;
     display: flex;
-    border: 5px solid var(--lk-gray);
-    background-color: white;
+    flex-direction: column;
+    border: 2px groove var(--lk-text-color);
+    background-color: rgb(233, 237, 238);
     height: 100%;
     width: 85%;
 }
 
-h1{
-    text-align: center;
+.main .paragraphs{
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.main h1{
+   font-family: 'Courier New'; 
+}
+
+.main p{
+   font-family: 'Courier New'; 
+}
+.searchbar{
+    display: flex;
+    justify-content: center;
+}
+
+input[type="search"]{
+    width: 50%;
+    font-size: 25px;
+}
+
+.searchbar img{
+    height: 25px;
 }
