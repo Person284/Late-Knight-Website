@@ -26,8 +26,8 @@ div.header{
 }
 
 .background img{
+    position: fixed;
     opacity: 50%;
-    position: absolute;
     top: 10px;
     right: -15px;
 }
@@ -61,14 +61,14 @@ button.headerButtons:hover{
 }
 
 footer{
-    display: flex;
-    flex-direction: row;
     background-color: black;
     position: fixed; 
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: var(--footer-size);
+    z-index: 1; /* Ensure footer is above content */
+    display: flex;
     justify-content: center;
     align-items: flex-start;
 }
@@ -98,7 +98,9 @@ footer img{
     margin-top: 200px;
     display: flex;
     justify-content: center;
-    width: 100%
+    width: 100%;
+    overflow-y: auto;
+    margin-bottom: var(--footer-size);
 }
 
 .main{
@@ -109,8 +111,7 @@ footer img{
     border: 2px groove var(--lk-text-color);
     background-color: rgb(233, 237, 238);
     width: 85%;
-    max-height: 100%;
-    overflow: auto;
+    padding-bottom: var(--footer-size);
 }
 
 .main .paragraphs{
