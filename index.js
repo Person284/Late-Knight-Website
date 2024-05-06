@@ -20,7 +20,7 @@ connection.connect((error) => {
   console.log('Connected to MySQL database!');
   
   // Run a query
-  connection.query('SELECT * FROM episodes WHERE Tags LIKE "%december%";', (err, results, fields) => {
+  connection.query('Select * FROM episodes WHERE tags LIKE "%kaden%";', (err, results, fields) => {
     if (err) {
       console.error('Error executing query:', err);
       return;
