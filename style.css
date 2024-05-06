@@ -137,3 +137,17 @@ input[id="searchvids"]{
     width: 50%;
     font-size: 25px;
 }
+
+table{
+    width: 100%;
+    border: 2px solid var(--plu-gold);
+}
+
+th, td{
+    border-right: 2px solid var(--lk-gray);
+    border-bottom: 2px solid var(--lk-gray);
+}
+
+td#desc{
+    text-align: left;
+}
