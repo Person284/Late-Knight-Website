@@ -7,9 +7,41 @@
     --header-size: 100px;
     --footer-size: 38px;
     overflow-x: hidden;
-    overflow-y:auto
+    overflow-y:auto;
 }
 
+#starscont{
+    position: fixed; 
+    top: 0;
+    left: -50%;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+#starpattern {
+    background-image: url("stars.png");
+    background-size: 30%;  
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    min-width: 1200px;
+    opacity: 50%;
+    animation: pan 90s linear infinite;
+    will-change: background-position;
+}
+
+@keyframes pan {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 0%;
+    }
+}
 
 div.header{
     position: fixed;
@@ -22,12 +54,13 @@ div.header{
     background-color: black;
     justify-content: space-between;
     color: var(--lk-text-color);
-    z-index: 1;
+    z-index: 2;
 }
 
-.background img{
+.backgroundimg img{
+    z-index: 0;
     position: fixed;
-    opacity: 50%;
+    opacity: 99%;
     top: 10px;
     right: -15px;
 }
@@ -66,7 +99,7 @@ footer{
     left: 0;
     width: 100%;
     height: var(--footer-size);
-    z-index: 1; /* Ensure footer is above content */
+    z-index: 2; /* Ensure footer is above content */
     display: flex;
     justify-content: center;
     align-items: flex-start;
