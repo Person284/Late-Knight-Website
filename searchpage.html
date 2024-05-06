@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link href="style.css" rel="stylesheet">
     <title>Late Knight</title>
-    <link rel="icon" href="lklogo.png">
+    <link rel="icon" href="src/lklogo.png">
 </head>
 
 <body>
@@ -15,13 +15,10 @@
     <div class="header">
 
         <div>
-            <a href="index.html"><img src="lklogo.png" alt="Late Knight Logo"></a>
+            <a href="index.html"><img src="src/lklogo.png" alt="Late Knight Logo"></a>
         </div>
 
         <div id="nav">
-                <!-- <a href="about.html">
-                    <button class="headerButtons">About</button>
-                </a> -->
 
                 <a href="https://plu.edu">
                     <button class="headerButtons">PLU</button>
@@ -32,7 +29,7 @@
                 </a>
 
                 <button class="headerButtons" id="search">
-                    <img src="search-icon.png">
+                    <img src="src/search-icon.png">
                 </button>
         </div>
 
@@ -41,7 +38,7 @@
     <div class="backgroundimg">
 
         <div>
-            <img src="lklogo.png" alt="Late Knight Logo" width="300" id="bgimg">
+            <img src="src/lklogo.png" alt="Late Knight Logo" width="300" id="bgimg">
         </div>
 
     </div>
@@ -79,23 +76,62 @@
         
     <footer>
         <div class="links">
-            <a href=https://twitter.com/plulateknight target=”_blank”><img src="icons8-twitter-48.png" alt="Late Knight Logo""></a>
+            <a href=https://twitter.com/plulateknight target=”_blank”><img src="src/icons8-twitter-48.png" alt="Late Knight Logo""></a>
 
-            <a href="https://www.facebook.com/plulateknight" target=”_blank”><img src="icons8-facebook-48.png" alt="Late Knight Logo""></a>
+            <a href="https://www.facebook.com/plulateknight" target=”_blank”><img src="src/icons8-facebook-48.png" alt="Late Knight Logo""></a>
 
-            <a href="https://www.instagram.com/plulateknight/?hl=en" target=”_blank”><img src="icons8-instagram-48.png" alt="Late Knight Logo""></a>
+            <a href="https://www.instagram.com/plulateknight/?hl=en" target=”_blank”><img src="src/icons8-instagram-48.png" alt="Late Knight Logo""></a>
             
-            <a href="https://www.youtube.com/@MastMediaPLU" target=”_blank”><img src="icons8-youtube-48.png" alt="Late Knight Logo""></a>
+            <a href="https://www.youtube.com/@MastMediaPLU" target=”_blank”><img src="src/icons8-youtube-48.png" alt="Late Knight Logo""></a>
         </div>
         <div id="copyright">
             <p>© 2024 Lake Knight, PLU. All rights reserved</p>
         </div>
         <div class="logo">
-            <img src="lklogo.png" alt="Late Knight Logo"">
+            <img src="src/lklogo.png" alt="Late Knight Logo"">
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script>
+        let query;
+        
+        document.getElementById("submitButton").addEventListener('click', loadText)
+        
+        function loadText(){
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'src/test.json', true);
+
+            query = document.getElementById("searchvids").value;
+
+            xhr.send("Hello, world!");
+            
+            xhr.onload = function(){
+                if(this.status == 200){
+                    const response = xhr.responseText;
+                    var result = JSON.parse(this.responseText);
+
+                    var output = '';
+
+                    for(var entry of result){
+                        output += '<tr><td>' + entry.season +'</td>' +
+                        '<td>'+ entry.episode +'</td>'+
+                        '<td>'+ entry.releasedate +'</td>'+
+                        '<td>'+ entry.host +'</td>'+
+                        '<td>'+ entry.musicalguest +'</td>'+
+                        '<td>'+ entry.description +'</td>'+
+                        '<td><a href='+ entry.link +'>youtube</a></td></tr>';
+                    }
+
+                    document.getElementById('tableBody').innerHTML = output;
+                }
+            }
+
+            xhr.send();
+
+            console.log(query)
+        }
+    </script>
 </body>
 
 </html>

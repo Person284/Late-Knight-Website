@@ -20,7 +20,7 @@
 }
 
 #starpattern {
-    background-image: url("stars.png");
+    background-image: url("src/stars.png");
     background-size: 30%;  
     position: absolute;
     left: 50%;

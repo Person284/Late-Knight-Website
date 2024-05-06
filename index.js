@@ -1,33 +1,35 @@
-let query;
+const mysql = require('mysql2');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-document.getElementById("submitButton").addEventListener('click', loadText)
+// create a new MySQL connection
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'plu2024',
+  database: 'test schema'
+});
 
-function loadText(){
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'test.json', true);
-
-    xhr.onload = function(){
-        if(this.status == 200){
-            var result = JSON.parse(this.responseText);
-
-            var output = '';
-
-            for(var entry of result){
-                output += '<tr><td>' + entry.season +'</td>' +
-                '<td>'+ entry.episode +'</td>'+
-                '<td>'+ entry.releasedate +'</td>'+
-                '<td>'+ entry.host +'</td>'+
-                '<td>'+ entry.musicalguest +'</td>'+
-                '<td>'+ entry.description +'</td>'+
-                '<td><a href='+ entry.link +'>youtube</a></td></tr>';
-            }
-
-            document.getElementById('tableBody').innerHTML = output;
-        }
+// connect to the MySQL database
+connection.connect((error) => {
+  if (error) {
+    console.error('Error connecting to MySQL database:', error);
+    return;
+  }
+  
+  console.log('Connected to MySQL database!');
+  
+  // Run a query
+  connection.query('SELECT * FROM episodes WHERE Tags LIKE "%december%";', (err, results, fields) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return;
     }
-
-    xhr.send();
-
-    query = document.getElementById("searchvids").value;
-    console.log(query)
-}
+    
+    // Log the results
+    console.log('Query results:', results);
+    
+    // Close the connection
+    connection.end();
+  });
+});
