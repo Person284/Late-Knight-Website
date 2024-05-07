@@ -103,8 +103,6 @@
             xhr.open('GET', 'src/test.json', true);
 
             query = document.getElementById("searchvids").value;
-
-            xhr.send("Hello, world!");
             
             xhr.onload = function(){
                 if(this.status == 200){
